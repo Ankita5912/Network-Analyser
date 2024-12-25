@@ -7,17 +7,14 @@ import threading
 import time
 import queue
 import socket
-from flask import Flask, render_template, request
+import sys
 
 # Configuration settings
-TARGET = input("Enter the IP address or domain name: ")
+TARGET = sys.argv[1] if len(sys.argv) > 1 else input("Enter the IP address or domain name: ")
 ALERT_THRESHOLD = 100  # Packet rate threshold for DoS/DDoS alerts
 
 # Initialize nmap scanner
 nm = nmap.PortScanner()
-
-# Initialize Flask app
-app = Flask(__name__)
 
 # Function to connect to the database
 def connect_db():
@@ -230,7 +227,6 @@ def run_analyzer():
     packet_capture_thread.join()
 
     generate_report()
-
 
 if __name__ == "__main__":
     run_analyzer()
