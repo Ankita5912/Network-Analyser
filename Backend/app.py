@@ -1,8 +1,11 @@
+from flask_cors import CORS
 from flask import Flask, request, jsonify
 import subprocess
 import os
 
+# Initialize Flask app
 app = Flask(__name__)
+CORS(app)  # Enable Cross-Origin Resource Sharing
 
 @app.route('/api/scan', methods=['POST'])
 def scan():
