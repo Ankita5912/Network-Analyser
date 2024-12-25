@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router } from 'react-router-dom';
 import About from './About';
 import './App.css';
 import ContactUs from './Contact';
@@ -11,9 +11,6 @@ function App() {
   return (
     <>
     <Router>
-    <Routes>
-      <Route element></Route>
-    </Routes>
     <Navbar></Navbar>
      <Header></Header>
      <About/>
